@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:qr_reader/src/widgets/scan_item.dart';
 
 class HistorialDireccionesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Direcciones Page'),
-    );
+    return ScanItem(tipo: 'http');
   }
 }

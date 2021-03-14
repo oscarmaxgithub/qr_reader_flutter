@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qr_reader/providerServices/db_provider.dart';
 import 'package:qr_reader/providerServices/scan_list_provider.dart';
 import 'package:qr_reader/providerServices/ui_provider.dart';
 import 'package:qr_reader/src/pages/historial_direcciones_page.dart';
@@ -9,14 +8,21 @@ import 'package:qr_reader/src/widgets/custom_navigatorbar.dart';
 import 'package:qr_reader/src/widgets/scan_button.dart';
 
 class HomePage extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
+    final mScanLisProvider=Provider.of<ScanListProvider>(context,listen: false);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Historial'),
+        centerTitle: true,
         elevation: 0,
         actions: [
-          IconButton(icon: Icon(Icons.delete_forever), onPressed: () {})
+          IconButton(icon: Icon(Icons.delete_forever), onPressed: () {
+            mScanLisProvider.deleteAllScans();
+          })
         ],
       ),
       body: _HomePageBody(),
@@ -45,12 +51,15 @@ class _HomePageBody extends StatelessWidget {
       case 0:
         scanListProvider.loadScansByType('geo');
         return HistorialMapasPage();
+        break;
       case 1:
         scanListProvider.loadScansByType('http');
         return HistorialDireccionesPage();
+        break;
       default:
         scanListProvider.loadScansByType('geo');
         return HistorialMapasPage();
+        break;
     }
   }
 }
