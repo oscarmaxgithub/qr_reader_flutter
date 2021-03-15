@@ -57,7 +57,7 @@ class _HomePageBody extends StatelessWidget {
         return HistorialDireccionesPage();
         break;
       default:
-        scanListProvider.loadScansByType('geo');
+        // scanListProvider.loadScansByType('geo');
         return HistorialMapasPage();
         break;
     }

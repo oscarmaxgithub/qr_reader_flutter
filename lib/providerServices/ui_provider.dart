@@ -5,10 +5,10 @@ class UIProvider extends ChangeNotifier {
   /// SE LE LLAMA UI POR USER INTERFACE, PERO TAMBIEN SE PUEDE LLAMAR SERVICE
   int _selectedMenuOpt = 0;
 
-  int get selectedMenuOpt => _selectedMenuOpt;
+  int get selectedMenuOpt => this._selectedMenuOpt;
 
   set selectedMenuOpt(int value) {
-    _selectedMenuOpt = value;
+    this._selectedMenuOpt = value;
     notifyListeners();//notifica a todos los widgets que esten escuchando el set
   }
 }

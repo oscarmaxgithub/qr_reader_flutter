@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.qr_reader">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
    <application
         android:label="qr_reader"
         android:icon="@mipmap/ic_launcher">
@@ -37,7 +38,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyB0FyLg1alxyFclMoMwBKnE1t4Lr7B1_Rs"/>
     </application>
-    <meta-data android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyB0FyLg1alxyFclMoMwBKnE1t4Lr7B1_Rs"/>
+
 </manifest>
